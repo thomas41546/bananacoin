@@ -661,8 +661,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 
 unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast)
 {
-    const int64 nTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-    const int64 nTargetSpacing = 10 * 60;
+    const int64 nTargetTimespan = 60 * 60; // 1 hour
+    const int64 nTargetSpacing =  1 * 60; // 1 minutes
     const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
     // Genesis block
