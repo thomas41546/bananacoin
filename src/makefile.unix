@@ -81,8 +81,10 @@ LIBS+= \
 #
 
 
+LDFLAGS=-L../db/build_unix/build/lib/
+
 DEBUGFLAGS=-g
-CXXFLAGS=-O2
+CXXFLAGS=-O2 -I../db/build_unix/build/include/
 xCXXFLAGS=-pthread -Wno-invalid-offsetof -Wformat $(DEBUGFLAGS) $(DEFS) $(HARDENING) $(CXXFLAGS)
 HEADERS = \
     base58.h \
@@ -145,7 +147,7 @@ obj/test/%.o: test/%.cpp
 	  rm -f $(@:%.o=%.d)
 
 test_bitcoin: obj/test/test_bitcoin.o $(filter-out obj/nogui/init.o,$(OBJS:obj/%=obj/nogui/%))
-	$(CXX) $(xCXXFLAGS) -o $@ $(LIBPATHS) $^ -Wl,-Bstatic -lboost_unit_test_framework $(LDFLAGS) $(LIBS)
+	$(CXX) $(xCXXFLAGS) -o $@ $(LIBPATHS) $^ -Wl,-Bstatic -lboost_unit_test_framework $(LDFLAGS) $(LFG) $(LIBS)
 
 clean:
 	-rm -f bitcoind test_bitcoin
