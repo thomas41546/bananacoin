@@ -348,8 +348,8 @@ void ThreadIRCSeed2(void* parg)
             Send(hSocket, "JOIN #bitcoinTEST\r");
             Send(hSocket, "WHO #bitcoinTEST\r");
         } else {
-            Send(hSocket, strprintf("JOIN #bananacoin\r", channel_number).c_str());
-            Send(hSocket, strprintf("WHO #bananacoin\r", channel_number).c_str());
+            Send(hSocket, strprintf("JOIN #bananacoin\r").c_str());
+            Send(hSocket, strprintf("WHO #bananacoin\r").c_str());
         }
 
         int64 nStart = GetTime();
