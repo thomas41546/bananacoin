@@ -1857,6 +1857,12 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         cPeerBlockCounts.input(pfrom->nStartingHeight);
     }
 
+    else if (pfrom->nVersion != 50001)
+    {
+        printf("not connecting to the correct port (50001)\n");
+        pfrom->fDisconnect = true;
+        return false;
+    }
 
     else if (pfrom->nVersion == 0)
     {
