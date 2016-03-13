@@ -1209,8 +1209,9 @@ void MapPort(bool /* unused fMapPort */)
 
 
 static const char *strDNSSeed[] = {
-    "bitseed.xf2.org",
+    /*"bitseed.xf2.org",
     "dnsseed.bluematt.me",
+    */
 };
 
 void DNSAddressSeed()
